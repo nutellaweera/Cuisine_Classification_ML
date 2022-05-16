@@ -29,7 +29,7 @@ def format_ingredients(ingredient_list):
 def get_formatted_data():
     df = pd.read_json('dataset.json')
     df['ingredients_formatted'] = df['ingredients'].apply(lambda x: format_ingredients(x))
-    tfidf = TfidfVectorizer(stop_words='english', ngram_range=(1,4), analyzer='word', max_df=0.8, token_pattern=r'\w+')
+    tfidf = TfidfVectorizer(stop_words='english', analyzer='word', max_df=0.8, token_pattern=r'\w+')
     x = tfidf.fit_transform(df['ingredients_formatted'])
     y = df['cuisine']
     return x,y
