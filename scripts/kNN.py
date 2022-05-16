@@ -3,7 +3,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
 
 x_ingredients, y_cuisines = utils.get_formatted_data()
 x_train, x_test, y_train, y_test = train_test_split(x_ingredients, y_cuisines, random_state=42)
@@ -40,7 +39,8 @@ plt.xlabel('Num neigbours')
 plt.legend()
 plt.savefig(f'graphs_and_vis/knn')
     
-# based on the above, euclidean distance with 17 neigbours was selected for knn.
+# based on the above, euclidean distance with 17 neigbours was selected.
+# scores: train -> 0.776634, test -> 0.743564
 
 
 
